@@ -46,8 +46,14 @@ def validate_columns(input_file):
 
 
 if __name__ == '__main__':
-    #    validate_columns("samples/names.csv")
-    validate_columns("samples/SalesJan2009.csv")
-    validate_columns("samples/tooFew.csv")
-    
-    validate_columns("samples/Sacramentorealestatetransactions_a.csv")
+    if len(sys.argv) is 1:
+        print "no arguments privided; running the program against some sample CSV files"
+        validate_columns("test_files/valid.csv")
+        validate_columns("test_files/rowLengthMismatch.csv")
+        validate_columns("test_files/tooFewColumns.csv")
+    else:
+        for arg in sys.argv[1:]:
+            if os.path.isfile(arg):
+                validate_columns(arg)
+            else:
+                print "'{0}' is not a valid file name".format(arg)
