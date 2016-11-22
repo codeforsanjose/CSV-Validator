@@ -4,7 +4,7 @@
 # NoDataError if the file contains only a single column or row.
 # Created November 2016 by Lisa Litchfield.
 
-import csv
+import csv, sys
 from collections import defaultdict
 class CkanError(Exception):pass
 class DuplicateColumnError(CkanError):pass
