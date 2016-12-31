@@ -13,6 +13,9 @@ class TestCSVValidator(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_columns('test_files/tooFewColumns.csv')
 
+    def test_duplicated_column_names(self):
+        with self.assertRaises(ValueError):
+            validate_columns('test_files/duplicatedColumnNames.csv')
 
 if __name__ == '__main__':
     unittest.main()
