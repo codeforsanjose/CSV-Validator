@@ -17,5 +17,9 @@ class TestCSVValidator(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_columns('test_files/duplicatedColumnNames.csv')
 
+    def test_row_length_mismatch(self):
+        with self.assertRaises(ValueError):
+            validate_columns('test_files/rowLengthMismatch.csv')
+
 if __name__ == '__main__':
     unittest.main()
