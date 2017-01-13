@@ -43,14 +43,20 @@ def validate_columns(input_file):
                 raise NoDataError("Data file contains fewer than 2 rows!")
 
 
+def validate_columns_simple_output(input_file):
+    try:
+        validate_columns(input_file)
+    except Exception as e:
+        print e
 
 
 if __name__ == '__main__':
     if len(sys.argv) is 1:
         print "no arguments privided; running the program against some sample CSV files"
-        validate_columns("test_files/valid.csv")
-        validate_columns("test_files/rowLengthMismatch.csv")
-        validate_columns("test_files/tooFewColumns.csv")
+        validate_columns_simple_output("test_files/valid.csv")
+        validate_columns_simple_output("test_files/rowLengthMismatch.csv")
+        validate_columns_simple_output("test_files/duplicatedColumnNames.csv")
+        validate_columns_simple_output("test_files/tooFewColumns.csv")
     else:
         for arg in sys.argv[1:]:
             if os.path.isfile(arg):
