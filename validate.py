@@ -19,7 +19,6 @@ class ColumnMismatchError(CkanError):
         return 'Not all rows have the same number of columns!'
 def validate_columns(input_file):
 
-    frequencies = defaultdict(int)
     duplicates = []
     headers = set()
     if not os.path.isfile(input_file):
