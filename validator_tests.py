@@ -25,10 +25,6 @@ class TestCSVValidator(unittest.TestCase):
         r = validate_columns('/this/better/not/exist/on/your/system')
         assert r is None
 
-    def test_validate_columns_duplicate_columns(self):
-        with self.assertRaises(DuplicateColumnError):
-            validate_columns('test_files/duplicate_columns.csv')
-
 
 if __name__ == '__main__':
     unittest.main()

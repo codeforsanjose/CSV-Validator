@@ -26,7 +26,8 @@ def validate_columns(input_file):
         print("Filepath {} is invalid".format(input_file))
         return
       
-    # open with universal newline mode enabled to prevent csv.Error: new-line character seen in unquoted field
+    # open with universal newline mode enabled to prevent
+    # csv.Error: new-line character seen in unquoted field
     with open(input_file, 'rU') as csvfile:
         file_reader = csv.reader(csvfile)
         # check for duplicate column names
